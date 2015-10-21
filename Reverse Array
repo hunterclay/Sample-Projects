@@ -1,0 +1,29 @@
+import java.util.*;
+//This program was written by Hunter Clay >> Hunter.Clay@rockets.utoledo.edu
+//Project 1 - Submitted 9/22/15
+//This program allows the user to make an array and then reverse the order of it.
+public class ReverseOrder {
+	public static void main (String [] args) {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter # of elements: ");
+		int arraySize = input.nextInt();
+		
+		int[] revArray = new int [arraySize];
+		System.out.println("Please enter your numbers: ");
+		
+			for(int i = 0; i < revArray.length; i++) {
+				if (input.hasNextInt()) {
+					revArray[i] = input.nextInt();
+				}
+			}
+			for(int i = 0, r = revArray.length - 1; i < (revArray.length / 2); i++, r--) {
+				int reverse = revArray[i];
+				revArray[i] = revArray[r];
+				revArray[r] = reverse;
+			}
+			for(int i = 0; i < arraySize; i++)
+				System.out.println(revArray[i]);
+
+		}
+}	
