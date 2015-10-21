@@ -1,0 +1,54 @@
+import java.util.*;
+import javax.swing.JOptionPane;
+//This program was written by Hunter Clay >> Hunter.Clay@rockets.utoledo.edu
+//Project 1 - Submitted 9/22/15
+//This program allows the user to guess for a secret number.
+//The program states if the user is: low, high, a little low,
+//a little high, way too low, and way too high.
+public class SecretNumber {
+	public static void main(String[] args) {
+		Random r = new Random();
+		int secretNumber = r.nextInt(100)+1;
+		int guess = -1;
+		System.out.println(secretNumber);
+		while(!(guess == secretNumber) && !(guess == 0)) {
+			guess = Integer.parseInt(JOptionPane.showInputDialog("Enter your guess: "));
+			int quotient = secretNumber - guess;
+			if(!(guess == 0)) {
+				String feedback = "Your guess is " + checkRange(quotient)+checkSign(quotient);
+				JOptionPane.showMessageDialog(null, feedback);
+	}
+
+  }
+}		
+  
+  public static String checkSign(int n) {
+	  if(n > 0) {
+		  return "low";
+	  }
+	  if(n < 0) {
+		  return "high";	  
+	  }
+	  if(n == 0) {
+		  return "correct";
+	  }
+	  return "";
+  }
+  public static String checkRange(int n) {
+	  n = Math.abs(n);
+	  if(n > 30){
+		  return "way too ";
+	  }
+	  else if((n <= 30) && (n >= 10)) {
+		  return "";
+	  }
+	  else if((n < 10) && (n > 0)) {
+		  return "a little ";
+	  }
+	  else if(n == 0) {
+		  return "";
+	  }
+	  return "";
+  }
+	
+}
